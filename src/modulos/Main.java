@@ -34,10 +34,10 @@ public class Main {
                         calculadoraBasica();
                         break;
                     case 2:
-                        
+                    	validacionContrasena();
                         break;
                     case 3:
-                      
+                    	NumerosPrimos();
                         break;
                     case 4:
                       
@@ -77,8 +77,9 @@ public class Main {
     
     
     
+    
     // ===============================
-    // MÉTODO PRINCIPAL DEL EJERCICIO
+    // MÉTODO PARA CALCULADORA
     // ===============================
 
     public static void calculadoraBasica() {
@@ -167,8 +168,68 @@ public class Main {
     public static double division(double a, double b) {
         return a / b;
     }
+
+    // ==================================
+    // METODO VALIDACION DE CONTRASEÑA
+    // ==================================
     
+    public static void validacionContrasena() {
+
+        String contrasena;
+
+        do {
+            System.out.print("Ingrese la contraseña: ");
+            contrasena = sc.next();
+
+            if (!contrasena.equals("1234")) {
+                System.out.println("Contraseña incorrecta. Intente nuevamente.");
+            }
+
+        } while (!contrasena.equals("1234"));
+
+        System.out.println("Acceso concedido.");
+    }
+  
     
+    // ==================================
+    // METODO DETERMINACION DE PRIMOS
+    // ==================================
+    public static boolean esPrimo(int numero) {
+
+        if (numero <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(numero); i++) {
+            if (numero % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    
+    public static void NumerosPrimos() {
+
+        int numero = 0;
+
+        while (true) {
+            try {
+                System.out.print("Ingrese un número entero: ");
+                numero = sc.nextInt();
+                break;
+            } catch (Exception e) {
+                System.out.println("Entrada inválida. Debe ingresar un número entero.");
+                sc.nextLine();
+            }
+        }
+
+        if (esPrimo(numero)) {
+            System.out.println("El número " + numero + " es primo.");
+        } else {
+            System.out.println("El número " + numero + " no es primo.");
+        }
+    }
     
     
     
