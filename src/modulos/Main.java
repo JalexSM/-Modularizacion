@@ -37,10 +37,10 @@ public class Main {
                     	validacionContrasena();
                         break;
                     case 3:
-                    	NumerosPrimos();
+                    	numerosPrimos();
                         break;
                     case 4:
-                      
+                    	sumaNumerosPares();
                         break;
                     case 5:
                         
@@ -128,7 +128,7 @@ public class Main {
     
 
     // ===============================
-    // MÉTODO PARA LEER NÚMEROS
+    // MÉTODO PARA LEER NÚMEROS DOUBLE
     // ===============================
 
     public static double leerNumero(String mensaje) {
@@ -190,6 +190,8 @@ public class Main {
         System.out.println("Acceso concedido.");
     }
   
+        
+    
     
     // ==================================
     // METODO DETERMINACION DE PRIMOS
@@ -209,7 +211,7 @@ public class Main {
         return true;
     }
     
-    public static void NumerosPrimos() {
+    public static void numerosPrimos() {
 
         int numero = 0;
 
@@ -231,6 +233,33 @@ public class Main {
         }
     }
     
+    // ==================================
+    // METODO SUMA DE PARES
+    // ==================================
+    
+    public static void sumaNumerosPares() {
+
+        int numero = -1;
+        int suma = 0;
+
+        while (numero != 0) {
+
+            try {
+                System.out.print("Ingrese un número entero (0 para salir): ");
+                numero = sc.nextInt();
+
+                if (numero % 2 == 0 && numero != 0) {
+                    suma += numero;
+                }
+
+            } catch (Exception e) {
+                System.out.println("Entrada inválida. Debe ingresar un número entero.");
+                sc.nextLine();
+            }
+        }
+
+        System.out.println("La suma de los números pares es: " + suma);
+    }
     
     
     
