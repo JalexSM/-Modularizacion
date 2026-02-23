@@ -43,10 +43,10 @@ public class Main {
                     	sumaNumerosPares();
                         break;
                     case 5:
-                        
+                    	conversionTemperatura();
                         break;
                     case 6:
-                        
+                    	contadordevocales();
                         break;
                     case 7:
                       
@@ -128,7 +128,7 @@ public class Main {
     
 
     // ===============================
-    // MÉTODO PARA LEER NÚMEROS DOUBLE
+    // MÉTODO PARA LEER NÚMEROS 
     // ===============================
 
     public static double leerNumero(String mensaje) {
@@ -148,6 +148,28 @@ public class Main {
 
         return numero;
     }
+    
+ // ========ENTEROS==============
+    public static int leerEntero(String mensaje) {
+
+        int numero = 0;
+
+        while (true) {
+            try {
+                System.out.print(mensaje);
+                numero = sc.nextInt();
+                break;
+            } catch (Exception e) {
+                System.out.println("Entrada inválida. Debe ingresar un número entero.");
+                sc.nextLine(); // limpia el buffer
+            }
+        }
+
+        return numero;
+    }
+    
+    
+    
 
     // ===============================
     // MÉTODOS DE OPERACIONES
@@ -259,6 +281,75 @@ public class Main {
         }
 
         System.out.println("La suma de los números pares es: " + suma);
+    }
+    // ==================================
+    // METODOS DE CONVERSION 
+    // ==================================
+    public static double celsiusAFahrenheit(double celsius) {
+        return (celsius * 9 / 5) + 32;
+    }
+    
+    public static double fahrenheitACelsius(double fahrenheit) {
+        return (fahrenheit - 32) * 5 / 9;
+    }
+    
+    
+    public static void conversionTemperatura() {
+
+        System.out.println("\n=== CONVERSIÓN DE TEMPERATURA ===");
+        System.out.println("1. Celsius a Fahrenheit");
+        System.out.println("2. Fahrenheit a Celsius");
+
+        int opcion = leerEntero("Seleccione una opción: ");
+
+        double temperatura = leerNumero("Ingrese la temperatura: ");
+
+        switch (opcion) {
+            case 1:
+                double resultado1 = celsiusAFahrenheit(temperatura);
+                System.out.println("Resultado: " + resultado1 + " °F");
+                break;
+
+            case 2:
+                double resultado2 = fahrenheitACelsius(temperatura);
+                System.out.println("Resultado: " + resultado2 + " °C");
+                break;
+
+            default:
+                System.out.println("Opción no válida.");
+        }
+    }
+    // ==================================
+    // FUNCION CONTEO DE VOCALES
+    // ==================================
+    public static int contarVocales(String texto) {
+
+        int contador = 0;
+        texto = texto.toLowerCase(); // para que también cuente mayúsculas
+
+        for (int i = 0; i < texto.length(); i++) {
+
+            char letra = texto.charAt(i);
+
+            if (letra == 'a' || letra == 'e' || letra == 'i' 
+                    || letra == 'o' || letra == 'u') {
+                contador++;
+            }
+        }
+
+        return contador;
+    }
+    
+    public static void contadordevocales() {
+
+        sc.nextLine(); // limpiar buffer por si antes se usó nextInt
+
+        System.out.print("Ingrese una palabra o frase: ");
+        String texto = sc.nextLine();
+
+        int cantidad = contarVocales(texto);
+
+        System.out.println("La cantidad de vocales es: " + cantidad);
     }
     
     
