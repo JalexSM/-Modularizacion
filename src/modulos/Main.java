@@ -55,7 +55,7 @@ public class Main {
                     	juegoAdivinanza();
                         break;
                     case 9:
-                    	
+                    	pasoPorReferencia();
                         break;
                     case 10:
                     	tablaMultiplicar();
@@ -408,6 +408,55 @@ public class Main {
         } while (intento != numeroSecreto);
     }
     
+    
+    
+    // ==================================
+    //Simulacion de paso por referencia
+    // ==================================
+    static class Contenedor {
+        int valor;
+
+        Contenedor(int valor) {
+            this.valor = valor;
+        }
+        }
+
+        // ==================================
+        //METODO DE INTERCAMBIO DE VALORES
+        // ==================================
+        public static void intercambiar(Contenedor a, Contenedor b) {
+
+            int temp = a.valor;
+            a.valor = b.valor;
+            b.valor = temp;
+        }
+        
+        
+        
+        // ==================================
+        //METODO PASO POR REFERENCIA
+        // ==================================
+    
+        public static void pasoPorReferencia() {
+
+            int num1 = leerEntero("Ingrese el primer número: ");
+            int num2 = leerEntero("Ingrese el segundo número: ");
+
+            Contenedor a = new Contenedor(num1);
+            Contenedor b = new Contenedor(num2);
+
+            System.out.println("\nAntes del intercambio:");
+            System.out.println("Número 1: " + a.valor);
+            System.out.println("Número 2: " + b.valor);
+
+            intercambiar(a, b);
+
+            System.out.println("\nDespués del intercambio:");
+            System.out.println("Número 1: " + a.valor);
+            System.out.println("Número 2: " + b.valor);
+        }
+
+    
     // ==================================
     // METODO CREACION DE TABLA
     // ==================================
@@ -429,9 +478,6 @@ public class Main {
 
        tabla(numero);
        }
-    
-    
-    
     
     
 }
