@@ -55,10 +55,10 @@ public class Main {
                     	juegoAdivinanza();
                         break;
                     case 9:
-                       
+                    	
                         break;
                     case 10:
-                      
+                    	tablaMultiplicar();
                         break;
                     case 11:
                         System.out.println("Saliendo del programa...");
@@ -407,6 +407,30 @@ public class Main {
 
         } while (intento != numeroSecreto);
     }
+    
+    // ==================================
+    // METODO CREACION DE TABLA
+    // ==================================
+    public static void  tabla(int numero) {
+    
+    	System.out.println("Tabla del "+ numero +" :");
+    	for ( int i=1; i<=10 ; i++) {
+    		 System.out.println(numero + " x " + i + " = " + (numero * i));
+    	}
+    	
+    }
+
+    // ==================================
+    // METODO CREACION DE TABLA
+    // ==================================
+    public static void tablaMultiplicar() {
+
+        int numero = leerEntero("Ingrese un número entero: ");
+
+       tabla(numero);
+       }
+    
+    
     
     
     
