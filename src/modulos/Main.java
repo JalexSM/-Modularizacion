@@ -49,10 +49,10 @@ public class Main {
                     	contadordevocales();
                         break;
                     case 7:
-                      
+                    	factorial();
                         break;
                     case 8:
-                       
+                    	juegoAdivinanza();
                         break;
                     case 9:
                        
@@ -342,7 +342,7 @@ public class Main {
     
     public static void contadordevocales() {
 
-        sc.nextLine(); // limpiar buffer por si antes se usó nextInt
+        sc.nextLine(); // limpiar buffer por el uso anterior de  nextInt
 
         System.out.print("Ingrese una palabra o frase: ");
         String texto = sc.nextLine();
@@ -350,6 +350,62 @@ public class Main {
         int cantidad = contarVocales(texto);
 
         System.out.println("La cantidad de vocales es: " + cantidad);
+    }
+    
+    // ==================================
+    // FUNCION CALCULAR FACTORIAL
+    // ==================================
+    public static long calcularFactorial(int numero) {
+
+        long factorial = 1;
+
+        for (int i = 1; i <= numero; i++) {
+            factorial *= i;
+        }
+
+        return factorial;
+    }
+    
+    public static void factorial() {
+
+        int numero = leerEntero("Ingrese un número entero (no negativo): ");
+
+        if (numero < 0) {
+            System.out.println("No se puede calcular el factorial de un número negativo.");
+            return;
+        }
+
+        long resultado = calcularFactorial(numero);
+
+        System.out.println("El factorial de " + numero + " es: " + resultado);
+    }
+    
+    
+    
+    // ==================================
+    // METODO DE ADIVINACION
+    // ==================================
+    public static void juegoAdivinanza() {
+
+        int numeroSecreto = (int) (Math.random() * 100) + 1;
+        int intento;
+
+        System.out.println("\n=== JUEGO DE ADIVINANZA ===");
+        System.out.println("Estoy pensando en un número entre 1 y 100.");
+
+        do {
+
+            intento = leerEntero("Ingrese su intento: ");
+
+            if (intento < numeroSecreto) {
+                System.out.println("El número es mayor.");
+            } else if (intento > numeroSecreto) {
+                System.out.println("El número es menor.");
+            } else {
+                System.out.println("¡Correcto! Adivinaste el número 🎉");
+            }
+
+        } while (intento != numeroSecreto);
     }
     
     
